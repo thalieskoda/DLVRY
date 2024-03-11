@@ -15,8 +15,9 @@ import * as LocationGeocoding from "expo-location";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 import Carousel from "../components/Carousel";
 import Categories from "../components/Categories";
+import Hotels from "../components/Hotels";
 //import { hotels } from "../assets/hotels";
-import Hotels from "../components/hotels";
+
 const index = () => {
   const [LocationServiceEnable, setLocationServiceEnable] = useState(false);
   const [displayCurrentAddress, setDisplayCurrentAddress] = useState(
@@ -626,8 +627,10 @@ const index = () => {
         ALL RESTAURANTS
       </Text>
       <View style={{marginHorizontal:8}}>
-        {hotels.map((index, item)=> (
-            <Hotels key={index} item={item}/>
+        {hotels.map((index, hotel)=> (
+          <View>
+            <Hotels key={index} hotel={hotel} />
+            </View>
         ))}
       </View>
     </ScrollView>
