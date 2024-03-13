@@ -9,12 +9,13 @@ import {
   Image,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Redirect } from "expo-router";
+import { Redirect, useRouter } from "expo-router";
 import * as Location from "expo-location";
 import * as LocationGeocoding from "expo-location";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 import Carousel from "../components/Carousel";
 import Categories from "../components/Categories";
+
 import Hotels from "../components/Hotels";
 //import { hotels } from "../assets/hotels";
 
@@ -484,6 +485,10 @@ const index = () => {
       time: "22 min",
     },
   ];
+  const router = useRouter();
+  const goToProfile = () => {
+    router.push("/profile");
+  };
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "#f8f8f8" }}>
       <View
@@ -509,8 +514,9 @@ const index = () => {
             justifyContent: "center",
             alignItems: "center",
             borderRadius: 20,
-          }}>
-          <Text>S</Text>
+          }}
+          onPress={goToProfile}>
+          <AntDesign name="user" size={24} color="white" />
         </Pressable>
       </View>
       <View
@@ -626,11 +632,11 @@ const index = () => {
         }}>
         ALL RESTAURANTS
       </Text>
-      <View style={{marginHorizontal:8}}>
-        {hotels.map((index, hotel)=> (
+      <View style={{ marginHorizontal: 8 }}>
+        {hotels.map((index, hotel) => (
           <View>
             <Hotels key={index} hotel={hotel} />
-            </View>
+          </View>
         ))}
       </View>
     </ScrollView>

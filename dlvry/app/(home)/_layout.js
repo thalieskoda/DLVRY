@@ -6,6 +6,7 @@ export const Layout = () => {
       <Stack.Screen name="index" />
       <Stack.Screen name="hotel" />
       <Stack.Screen name="cart" />
+      <Stack.Screen name ="profile"/>
     </Stack>
   );
 };
